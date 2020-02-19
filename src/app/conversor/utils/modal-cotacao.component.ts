@@ -1,10 +1,11 @@
-import { 
-	Component, Input, Output, EventEmitter 
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter, } from '@angular/core';
 
-import { ConversaoResponse } from '../models/conversao-response.model';
-import { Conversao } from '../models/conversao.model';
-import { ConversorService } from '../services/conversor.service';
+import { Conversao, ConversaoResponse } from '../models';
+import { ConversorService } from '../services';
+
+
+//import { ConversaoResponse, Conversao } from '../models';;
+//import { ConversorService } from '../services/';
 
 @Component({
 	selector: 'modal-cotacao',
@@ -16,35 +17,35 @@ export class ModalCotacaoComponent {
 	@Input() conversaoResponse: ConversaoResponse;
 	@Input() conversao: Conversao = new Conversao();
 	@Output() onConfirm: EventEmitter<any> = new EventEmitter<any>();
+ constructor(private conversorService: ConversorService) {}
 
-	constructor(private conversorService: ConversorService) {}
+ novaConsulta() {
+	 this.onConfirm.emit();
+ }
+ get valorConvertido(): string {
+	 if (this.conversaoResponse === undefined) {
+		 return '0';
+	 }
 
-	novaConsulta() {
-		this.onConfirm.emit();
-	}
+	 return (this.conversao.valor * 
+		this.conversaoResponse.rates[this.conversao.moedaPara])
+		.toFixed(2);
+ }
 
-	get valorConvertido(): string {
-	  	if (this.conversaoResponse === undefined) {
-	  		return '0';
-	  	}
-	  	
-	  	return (this.conversao.valor * 
-	  		this.conversaoResponse.rates[this.conversao.moedaPara])
-	  			.toFixed(2);
-	}
+ get cotacaoPara(): number {
+	 return this.conversorService.cotacaoPara(
+		 this.conversaoResponse, this.conversao);
+ }
 
-	get cotacaoPara(): number {
-	  	return this.conversorService.cotacaoPara(
-	  		this.conversaoResponse, this.conversao);
-	}
+ get cotacaoDe(): string {
+	 return this.conversorService.cotacaoDe(
+		 this.conversaoResponse, this.conversao);
+ }
 
-	get cotacaoDe(): string {
-	  	return this.conversorService.cotacaoDe(
-	  		this.conversaoResponse, this.conversao);
-	}
-
-	get dataCotacao(): string {
-		return this.conversorService.dataCotacao(
-	  		this.conversaoResponse);
-	}
+ get dataCotacao(): string {
+	 return this.conversorService.dataCotacao(
+		 this.conversaoResponse);
+	 
+ }
 }
+

@@ -14,17 +14,18 @@ export class CadastrarTarefaComponent implements OnInit {
   @ViewChild('formTarefa') formTarefa: NgForm;
   tarefa: Tarefa;
 
-  constructor(private tarefaService: TarefaService,
-  	private router: Router) { }
+  constructor(
+    private tarefaService: TarefaService,
+    private router: Router) { }
 
   ngOnInit() {
-  	this.tarefa = new Tarefa(0, "", false);
+    this.tarefa = new Tarefa();
   }
 
   cadastrar(): void {
     if (this.formTarefa.form.valid) {
-  	  this.tarefaService.cadastrar(this.tarefa);
-  	  this.router.navigate(["/tarefas"]);
+      this.tarefaService.cadastrar(this.tarefa);
+      this.router.navigate(["/tarefas"]);
     }
   }
 

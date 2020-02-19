@@ -4,12 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardModule } from './dashboard';
 import { CalculadoraModule } from './calculadora';
 import { ConversorModule } from './conversor';
 import { TarefasModule } from './tarefas';
 import { JogoDaVelhaModule } from './jogo-da-velha';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -25,6 +30,10 @@ import { JogoDaVelhaModule } from './jogo-da-velha';
     ConversorModule,
     TarefasModule,
     JogoDaVelhaModule
+ 
+
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

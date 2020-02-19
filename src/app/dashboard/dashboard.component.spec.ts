@@ -10,11 +10,11 @@ describe('DashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ 
-        DashboardComponent 
-      ],
-      providers: [
-        DadosService
-      ]
+        DashboardComponent
+       ],
+       providers: [
+         DadosService
+       ]
     })
     .compileComponents();
   }));

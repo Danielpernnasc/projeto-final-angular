@@ -8,15 +8,15 @@ export class TarefaService {
   constructor() { }
 
   listarTodos(): Tarefa[] {
-  	const tarefas = localStorage['tarefas'];
-  	return tarefas ? JSON.parse(tarefas) : [];
+    const tarefas = localStorage['tarefas'];
+    return tarefas ? JSON.parse(tarefas) : [];
   }
 
   cadastrar(tarefa: Tarefa): void {
-  	const tarefas = this.listarTodos();
-  	tarefa.id = new Date().getTime();
-  	tarefas.push(tarefa);
-  	localStorage['tarefas'] = JSON.stringify(tarefas);
+    const tarefas = this.listarTodos();
+    tarefa.id = new Date().getTime();
+    tarefas.push(tarefa);
+    localStorage['tarefas'] = JSON.stringify(tarefas);
   }
 
   buscarPorId(id: number): Tarefa {

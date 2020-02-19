@@ -18,5 +18,5 @@ describe('ListarTarefaComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();*/
   });
-  
+
 });

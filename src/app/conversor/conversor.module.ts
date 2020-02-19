@@ -19,7 +19,7 @@ import { DataBrPipe } from './pipes';
   	ConversorComponent,
   	NumeroDirective,
   	ModalCotacaoComponent,
-  	DataBrPipe
+    DataBrPipe
   ],
   exports: [
   	ConversorComponent

@@ -2,9 +2,12 @@ import {
 	Directive, ElementRef, Input, OnInit 
 } from '@angular/core';
 
-@Directive({ selector: '[tarefaConcluida]' })
+@Directive({ 
+	selector: '[tarefaConcluida]' 
+})
 export class TarefaConcluidaDirective implements OnInit  {
-   @Input() tarefaConcluida: boolean;
+   
+    @Input() tarefaConcluida: boolean;
 
     constructor(private el: ElementRef) {}
 
