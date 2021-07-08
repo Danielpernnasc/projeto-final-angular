@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/projeto-final-v6",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -33,6 +34,12 @@
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -122,5 +129,8 @@
       }
     }
   },
-  "defaultProject": "projeto-final-v6"
+  "defaultProject": "projeto-final-v6",
+  "cli": {
+    "analytics": "5e8b4898-1b01-4854-8ac2-ca0c2862318c"
+  }
 }
