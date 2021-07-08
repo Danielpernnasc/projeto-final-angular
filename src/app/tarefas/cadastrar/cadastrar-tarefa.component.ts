@@ -12,7 +12,7 @@ import { TarefaService, Tarefa } from '../shared';
 export class CadastrarTarefaComponent implements OnInit {
 
 
-  @ViewChild("formTarefa", { static: false })
+  @ViewChild("formTarefa", { read: false })
   viewMe?: ElementRef<HTMLElement>; 
   tarefa: Tarefa;
   formTarefa: any;

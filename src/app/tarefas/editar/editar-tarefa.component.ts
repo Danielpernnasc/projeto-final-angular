@@ -13,7 +13,7 @@ export class EditarTarefaComponent implements OnInit {
 
   // @ViewChild('formTarefa') formTarefa: NgForm;
   // tarefa: Tarefa;
-  @ViewChild("formTarefa", { static: false })
+  @ViewChild("formTarefa", { read: false })
   viewMe?: ElementRef<HTMLElement>; 
   tarefa: Tarefa;
   formTarefa: any;

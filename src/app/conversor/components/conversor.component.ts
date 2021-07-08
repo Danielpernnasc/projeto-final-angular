@@ -15,7 +15,7 @@ export class ConversorComponent implements OnInit {
   private possuiErro: boolean;
   private conversaoResponse: ConversaoResponse;
 
-  @ViewChild("conversaoForm", { static: false })
+  @ViewChild("conversaoForm", { read: false })
   viewMe?: ElementRef<HTMLElement>; 
   conversaoForm: any;
 
