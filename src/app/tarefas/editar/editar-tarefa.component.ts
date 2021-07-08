@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'; 
 import { NgForm } from '@angular/forms'; 
 
@@ -11,8 +11,12 @@ import { TarefaService, Tarefa } from '../shared';
 })
 export class EditarTarefaComponent implements OnInit {
 
-  @ViewChild('formTarefa') formTarefa: NgForm;
+  // @ViewChild('formTarefa') formTarefa: NgForm;
+  // tarefa: Tarefa;
+  @ViewChild("formTarefa", { static: false })
+  viewMe?: ElementRef<HTMLElement>; 
   tarefa: Tarefa;
+  formTarefa: any;
 
   constructor(
     private tarefaService: TarefaService,

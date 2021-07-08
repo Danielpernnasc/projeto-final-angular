@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { Moeda, Conversao, ConversaoResponse } from '../models';
 import { MoedaService, ConversorService } from '../services';
@@ -16,7 +15,9 @@ export class ConversorComponent implements OnInit {
   private possuiErro: boolean;
   private conversaoResponse: ConversaoResponse;
 
-  @ViewChild("conversaoForm") conversaoForm: NgForm;
+  @ViewChild("conversaoForm", { static: false })
+  viewMe?: ElementRef<HTMLElement>; 
+  conversaoForm: any;
 
   constructor(
     private moedaService: MoedaService,
