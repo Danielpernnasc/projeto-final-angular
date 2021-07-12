@@ -10,10 +10,10 @@ import { MoedaService, ConversorService } from '../services';
 })
 export class ConversorComponent implements OnInit {
 
-  private moedas: Moeda[];
-  private conversao: Conversao;
-  private possuiErro: boolean;
-  private conversaoResponse: ConversaoResponse;
+  public moedas: Moeda[];
+  public conversao: Conversao;
+  public possuiErro: boolean;
+  public conversaoResponse: ConversaoResponse;
 
   @ViewChild("conversaoForm", { read: false })
   viewMe?: ElementRef<HTMLElement>; 
